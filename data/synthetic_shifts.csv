@@ -1,0 +1,4 @@
+shift,planned_minutes,downtime_minutes,ideal_cycle_seconds,total_units,good_units,cause
+Morning,480,60,60,378,360,Setup
+Afternoon,480,30,60,405,397,Maintenance
+Night,480,90,60,312,300,Material shortage
