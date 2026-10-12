@@ -1,0 +1,6 @@
+shift,start_minute,end_minute,cause
+Morning,100,120,Setup
+Morning,120,160,Material shortage
+Afternoon,300,330,Maintenance
+Night,100,160,Material shortage
+Night,250,280,Setup

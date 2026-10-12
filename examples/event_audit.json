@@ -1,0 +1,45 @@
+{
+  "status": "RECONCILED",
+  "input_type": "synthetic_shift_and_event_csv",
+  "shifts": [
+    {
+      "shift": "Afternoon",
+      "planned_minutes": 480,
+      "expected_downtime_minutes": 30,
+      "event_downtime_minutes": 30,
+      "events": 1
+    },
+    {
+      "shift": "Morning",
+      "planned_minutes": 480,
+      "expected_downtime_minutes": 60,
+      "event_downtime_minutes": 60,
+      "events": 2
+    },
+    {
+      "shift": "Night",
+      "planned_minutes": 480,
+      "expected_downtime_minutes": 90,
+      "event_downtime_minutes": 90,
+      "events": 2
+    }
+  ],
+  "event_count": 5,
+  "downtime_minutes": 180,
+  "oee_exact": "1057/1440",
+  "oee_percent": "73.40%",
+  "event_cause_ranking": [
+    {
+      "cause": "Material shortage",
+      "minutes": 100
+    },
+    {
+      "cause": "Setup",
+      "minutes": 50
+    },
+    {
+      "cause": "Maintenance",
+      "minutes": 30
+    }
+  ]
+}

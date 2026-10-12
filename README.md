@@ -37,3 +37,23 @@ For the supplied three-shift CSV, totals are `P=1440`, `D=180`, `O=1260`, `T=109
 ## Limits of interpretation
 
 OEE depends on how planned time, downtime, the ideal cycle and good units are defined. The chosen single-cause-per-shift CSV is deliberately simpler than real event logs; it cannot attribute multiple downtime causes within one shift. Do not treat the sample ranking as a real operational decision, or compare its OEE with another operation without matching definitions. No real production system or MES/SCADA integration was tested.
+
+## Optional event-level downtime reconciliation
+
+The original CSV intentionally assigns one cause per shift. When a synthetic
+shift includes several stops with different causes, use the separate offline
+[event reconciliation tool](docs/downtime-event-audit.md) to validate that
+nonoverlapping event durations match each shift's downtime and build an
+event-level Pareto. The original OEE calculation is unchanged.
+
+```sh
+python3 downtime_event_audit.py data/synthetic_shifts.csv \
+  data/synthetic_downtime_events.csv --output-dir results/event-example
+```
+
+The fictional example reconciles **5 events / 180 downtime minutes**, with
+**73.40% unchanged OEE** and event cause totals **100 / 50 / 30 minutes**.
+See [sample report](examples/event_audit.md),
+[sample JSON](examples/event_audit.json), and
+[tests](tests/test_downtime_event_audit.py). No real plant or MES integration
+has been tested.
