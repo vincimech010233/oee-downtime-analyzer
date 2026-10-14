@@ -37,3 +37,12 @@ For the supplied three-shift CSV, totals are `P=1440`, `D=180`, `O=1260`, `T=109
 ## Limits of interpretation
 
 OEE depends on how planned time, downtime, the ideal cycle and good units are defined. The chosen single-cause-per-shift CSV is deliberately simpler than real event logs; it cannot attribute multiple downtime causes within one shift. Do not treat the sample ranking as a real operational decision, or compare its OEE with another operation without matching definitions. No real production system or MES/SCADA integration was tested.
+
+## Conditional downtime-recovery scenarios (offline)
+
+A second, independent CLI models one-cause-at-a-time **fictional** downtime-reduction scenarios. It holds observed Performance and Quality fixed, so reported OEE is conditional, **not predicted or measured improvement**. Input validation is reused from the base analyzer; output is Markdown on stdout.
+
+    python3 oee_recovery.py data/synthetic_shifts.csv --recovery-percent 50
+    python3 -m unittest discover -s tests -p 'test_*.py' -v
+
+See [methodology and limits](docs/DOWNTIME_RECOVERY.md) and the [reproducible example](examples/recovery_report.md). No additional dependencies; original MIT license remains in force.
